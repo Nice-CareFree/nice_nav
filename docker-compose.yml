@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nice-nav-frontend:
+    build: .
+    container_name: nice-nav-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .env:/app/.env
+    networks:
+      - nice-nav-network
+
+networks:
+  nice-nav-network:
+    driver: bridge 
